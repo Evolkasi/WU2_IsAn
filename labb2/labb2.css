@@ -1,58 +1,127 @@
 body {
-	background-color: #880045;
+	background-color: #7b1e5e;
 }
+
 header {
 	border: 2px solid #9D2763;
-	width: 600px;
-	margin-bottom: 5px;
+	border-bottom: 0;
+	height: 76px;
+	width: 100%; /* originally 600px */
 	text-align: center;
-	background-color: #E83A93;
+	background-color: #d75bb0;
 	background-image: url("http://porkforge.mardby.se/skins/common/images/wiki.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: 20px;
+	background-repeat: repeat;
+	background-size: contain; /* Originaly contain */
+	background-position: 0; /* Originally 20px */
 
 }
 
-nav {
+#toolbar {
+	overflow: hidden;
+}
+
+#toolbar ul {
 	border: 2px solid #9D2763;
-	width: 600px;
-	margin-bottom: 5px;
+	border-top: 0;
+	background-color: #d75bb0;
+	margin: 0;
+	padding: 0;
+}
+
+#toolbar ul li{
 	text-align: center;
-	background-color: #E83A93;
+	display: inline-block;
+	clear: both;
+	font-size: 25px;
+	text-decoration: none;
+	background-image:
+    linear-gradient(to right,
+      #d75bb0, #e41b83, #d75bb0);
+	padding: 0 100px;
+	margin: 0 1.25%;
+}
+
+#toolbar ul li a {
+	color: white;
+}
+
+#toolbar ul li a:hover {
+	color: hotpink;
+	font-style: italic;
+}
+
+.sidebar {
+	position: fixed;
+	border: 2px solid #9D2763;
+	width: 20%;
+	height: 250px;
+	float: left;
+	margin: 0 2% 5px 2%;
+	text-align: center;
+	background-color: #cc3399;
 }
 
 .content {
 	border: 2px solid #9D2763;
-	width: 560px;
+	float: right;
+	width: 70%; /* originally 560px */
 	margin-bottom: 5px;
-	padding: 10px 20px;
-	background-color: #E869AA;
+	margin-right: 5%;
+	padding: 10px; /* originally 10px 20px */
+	background-color: #cc3399;
+	height: 1000px;
+	font-size: 20px;
 }
 
 footer {
 	border: 2px solid #9D2763;
-	width: 600px;
+	width: 100%; originally 600px
 	text-align: center;
 	background-color: #E83A93;
+	margin-top: 1000px;
 }
 
-nav ul li {
-	display: inline;
+.sidebar ul li {
+	display: block; /* originally inline */
+	margin-top: 25px;
+	overflow: hidden;
 }
 
-nav ul li a
-{
+.sidebar ul li a {
+	font-size: 18px;
 	text-decoration: none;
-	padding: 5px;
-	border: 2px solid black;
+	padding: 5px 42%;
+	/* border: 2px solid black; */
 	color: white;
-	background-color: #880045;
+	background-image:
+    linear-gradient(
+      #cc3399, #a4287d, #cc3399
+    );
+	width: 100%
 }
 
-nav ul li a.highlight
-{
+.sidebar ul li a.highlight {
 	color: #880045;
 	background-color: #E869AA;
 	font-weight: bold;
+}
+
+.sidebar ul {
+	padding-left: 0;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
 }
