@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Olika viktiga saker -->
     <link rel="cool Icon bruh" href="assets/img/favicon.ico" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Lägger till Bootstrap och länkar Css.-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="labb2/labb2.css">
-    <script src="jquery-3.3.1.min.js"></script>
     <title>Believe in You</title>
 </head>
 <body>
   <header>
-    <!-- Högst upp på sidan ska det vara en bild som sträcker sig från höger till vänster sida,
-         och under bilden är menyn som tillåter en att flytta sig mellan sidor. -->
+    <!-- Text högst upp på sidan -->
 		<h1>Answer to Your Prayers</h1>
+
+    <!-- The overlay -->
+<div id="myNav" class="overlay">
+
+ <!-- Button to close the overlay navigation -->
+ <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+ <!-- Overlay content -->
+ <div class="overlay-content">
+   <a class="overlay-first" href="mall_post.html">hi</a>
+   <a href="mall_post.html">hello</a>
+   <a href="mall_post.html">g'day</a>
+   <a href="mall_post.html">aye</a>
+   <a href="mall_post.html">yaharr</a>
+ </div>
+
+</div>
+
+<!-- Use any element to open/show the overlay navigation menu -->
+<div class="open" onclick="openNav()">Menu</div>
+
 	</header>
+  <!-- Toolbaren högst upp -->
   <nav id="toolbar">
     <ul>
       <li><a href="mall_post.html">hi</a></li>
@@ -26,16 +48,15 @@
     </ul>
 
   </nav>
-    <!-- På vänster sida utav sidan sitter en ruta som låter en att posta saker (som i en knapp som leder dig till post fönstret, inte en ruta där du skriver i), titta vad ens vänner gör,
-    se populära posts osv... Mitten utav sidan är där man kan titta på nya posts. -->
+    <!-- Rutan åt sidan. -->
 	<nav class="sidebar">
 		<ul>
-			<li><a href="mall_blog.html">Start</a></li>
-			<li><a href="mall_post.html">Blogg</a></li>
-			<li><a href="index.php?page=kontakt">Kontakt</a></li>
+			<li><a href="mall_blog.html"><span class="text">Start</span><img class="start" src="http://www.free-icons-download.net/images/button-home-house-icon-63650.png" /></a></li>
+			<li><a href="mall_post.html"><span class="text">Blogg</span><img class="blogg" src="http://www.free-icons-download.net/images/cap-77387.png"/></a></li>
+			<li><a href="index.php?page=kontakt"><span class="text">Kontakt</span><img class="kontakt" src="http://www.free-icons-download.net/images/alarm17-77384.png"/></a></li>
 		</ul>
 	</nav>
-
+   <!-- Den stora rutan i mitten -->
 	<div class="content">
     <p>THE FIVE COMMANDMENTS (THE PENTABARF)</p>
 
@@ -90,8 +111,10 @@ they are our brothers, how come we can't eat them?
 	</div>
 
 	<footer>
-		<p>Vårt första PHP-projekt, Labb 2</p>
+		<p>I can't see you</p>
 	</footer>
+  <!-- Länkar Jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="labb2/labb2.js"></script>
 </body>
 </html>

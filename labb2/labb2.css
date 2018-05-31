@@ -13,7 +13,6 @@ header {
 	background-repeat: repeat;
 	background-size: contain; /* Originaly contain */
 	background-position: 0; /* Originally 20px */
-
 }
 
 #toolbar {
@@ -26,6 +25,7 @@ header {
 	background-color: #d75bb0;
 	margin: 0;
 	padding: 0;
+	display: flex;
 }
 
 #toolbar ul li{
@@ -37,7 +37,7 @@ header {
 	background-image:
     linear-gradient(to right,
       #d75bb0, #e41b83, #d75bb0);
-	padding: 0 100px;
+	padding: 0 7.2%;
 	margin: 0 1.25%;
 }
 
@@ -47,7 +47,7 @@ header {
 
 #toolbar ul li a:hover {
 	color: hotpink;
-	font-style: italic;
+	font-style: bold;
 }
 
 .sidebar {
@@ -69,7 +69,7 @@ header {
 	margin-right: 5%;
 	padding: 10px; /* originally 10px 20px */
 	background-color: #cc3399;
-	height: 1000px;
+	height: 100%;
 	font-size: 20px;
 }
 
@@ -78,13 +78,16 @@ footer {
 	width: 100%; originally 600px
 	text-align: center;
 	background-color: #E83A93;
-	margin-top: 1000px;
+	bottom: 0;
+	float:right;
 }
 
 .sidebar ul li {
 	display: block; /* originally inline */
 	margin-top: 25px;
 	overflow: hidden;
+	width: 100%;
+	text-align: center;
 }
 
 .sidebar ul li a {
@@ -97,7 +100,7 @@ footer {
     linear-gradient(
       #cc3399, #a4287d, #cc3399
     );
-	width: 100%
+	width: 100%;
 }
 
 .sidebar ul li a.highlight {
@@ -108,6 +111,10 @@ footer {
 
 .sidebar ul {
 	padding-left: 0;
+}
+
+.sidebar img {
+	display: none;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
@@ -121,7 +128,182 @@ footer {
   padding-top: 60px;
 }
 
-/* Page content */
-.content {
-  padding: 16px;
+/* Gömmer overlay tills senare */
+.overlay, #myNav, .closebtn, .overlay-content, .open {
+	display: none;
 }
+
+/*---------------------------------------- Smaller Screens and such --------------------------------------------------------*/
+@media screen and (max-width: 800px) {
+
+	h1 {
+		font-size: 2.5em;
+	}
+
+	/* Tar bort Toolbar men tar tillbaks overlay */
+	#toolbar {
+		display: none;
+	}
+
+	.overlay, #myNav, .closebtn, .overlay-content, .open {
+		display: initial;
+	}
+
+	/* The Overlay (background) */
+.overlay {
+	 /* Height & width depends on how you want to reveal the overlay (see JS below) */
+	 height: 100%;
+	 width: 0;
+	 position: fixed; /* Stay in place */
+	 z-index: 1; /* Sit on top */
+	 left: 0;
+	 top: 0;
+	 background-color: rgb(0,0,0); /* Black fallback color */
+	 background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+	 overflow-x: hidden; /* Disable horizontal scroll */
+	 transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+	 position: relative;
+	 top: 25%; /* 25% from the top */
+	 width: 100%; /* 100% width */
+	 text-align: center; /* Centered text/links */
+	 margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+	 padding: 8px;
+	 text-decoration: none;
+	 font-size: 36px;
+	 color: #818181;
+	 display: block; /* Display block instead of inline */
+	 transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+	 color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+	 position: absolute;
+	 top: 15px;
+	 right: 45px;
+	 font-size: 60px;
+}
+
+/* The button to open the overlay */
+.open {
+	position: absolute;
+	right: 12px;
+	padding: 10px;
+	background-color: #e698c1;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+.sidebar ul li{
+	width: 100%;
+	text-align: center;
+}
+
+header {
+	border-bottom: 2px solid #9D2763;
+}
+
+/* The sidebar */
+
+.sidebar ul li {
+	line-height: 82px;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	display: block; /* originally inline */
+	text-align: center;
+	background: linear-gradient(#d75bb0, #e41b83);
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.sidebar {
+	border-radius: 10px;
+	overflow: hidden;
+	height: auto;
+}
+
+.sidebar ul li:hover {
+	background: linear-gradient(#e41b83, #d75bb0);
+}
+
+.sidebar ul li a {
+	width: auto;
+	font-size: 18px;
+	text-decoration: none;
+	padding: 5px 42%;
+	/* border: 2px solid black; */
+	color: white;
+	background-image: none;
+}
+}
+/*--------------------------------------- for even smaller screens ------------------------------------------------------- */
+
+@media screen and (max-width: 600px) {
+
+	/* Titeln högst upp blir förminskad */
+
+	h1 {
+		font-size: 2em;
+	}
+
+	/* Själva textlådan i mitten */
+
+	.content {
+		width: 80%;
+		font-size: 18px;
+	}
+
+	/* open knappen fixas */
+
+	.open {
+		margin-left: 75%;
+	}
+
+	/* Sidebaren fixas med */
+
+	.sidebar{
+		width: 10%;
+		text: hidden;
+	}
+
+	.sidebar ul li {
+		line-height: 0;
+	}
+
+	.sidebar .text {
+		display: none;
+	}
+	.sidebar .start {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-top: 10px;
+	}
+
+	.sidebar .blogg {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-top: 10px;
+	}
+
+	.sidebar .kontakt {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-top: 10px;
+	}

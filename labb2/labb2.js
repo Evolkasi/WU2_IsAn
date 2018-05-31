@@ -1,4 +1,3 @@
-
   // When the user scrolls the page, execute myFunction
   window.onscroll = function() {myFunction()};
 
@@ -15,4 +14,14 @@
     } else {
       toolbar.classList.remove("sticky");
     }
+  }
+/* The thingie on smaller screens */
+  /* Open when someone clicks on the span element */
+  function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+  }
+
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
   }
